@@ -44,8 +44,8 @@ class ReCaptchaField(forms.CharField):
         if bool(json_response['success']):
             return values[0]
         else:
-            if 'missing-input-secret' in json_response['error-codes'] or \
-                    'invalid-input-secret' in json_response['error-codes']:
+            if 'missing-input-secret' in json_response.get('error-codes', {}) or \
+                    'invalid-input-secret' in json_response.get('error-codes', {}):
 
                 logger.exception('Invalid reCaptcha secret key detected')
                 raise ValidationError(
