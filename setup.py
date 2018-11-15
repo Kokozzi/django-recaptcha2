@@ -8,7 +8,7 @@ setup(
     include_package_data=True,
     version='0.1.7',
     install_requires=[
-        'Django>=1.7',
+        'Django>=1.5',
         'requests'
     ],
     description='Django reCaptcha v2 field/widget',
